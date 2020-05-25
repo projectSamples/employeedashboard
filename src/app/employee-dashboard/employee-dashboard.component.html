@@ -1,0 +1,26 @@
+<div>
+  <h1>Employee Dashboard</h1>
+  <div class="dashboard-wrapper">
+    <mat-grid-list cols="4" rowHeight="300px" gutterSize="5px">
+      <mat-grid-tile class="grid-tile" *ngFor="let country of countries"
+                     [colspan]="country.cols"
+                     [rowspan]="country.rows"
+                     [style.background]="country.background"
+                     (click)="countryChanged(country)"
+      [style.border]="'0.2px solid gray'">
+        <div class="country-tile">
+          <div class="country-project">
+            <span class="country-name">{{country.countyName}}</span>
+            <span class="project-name">Project: {{country['projectName']}}</span>
+          </div>
+          <div>
+            <i class="fa fa-building country-building" aria-hidden="true"></i>
+          </div>
+        </div>
+        <mat-grid-tile-footer>
+          <h3 footer-text> Employees: {{country.employee.length}}</h3>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
